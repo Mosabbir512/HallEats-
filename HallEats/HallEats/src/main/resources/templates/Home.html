@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HallEats - Home</title>
+  <link rel="stylesheet" href="your-css-file.css">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .token-purchase, .about-us {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+    .about-us {
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #4CAF50;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      max-width: 756px;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 756px;
+      /* Make the button full width */
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+
+    footer {
+      max-height: 30px; /* Reduce by half */
+      text-align: center;
+      padding: 10px; /* Adjust padding as needed */
+      background-color: #4CAF50;
+      color: white;
+      display: flex;
+      justify-content: center; /* Center align text horizontally */
+      align-items: center; /* Center align text vertically */
+    }
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+    }
+  </style>
+  <script>
+    function clicked1(){
+      window.location.href="http://localhost:8080/logout"
+
+    }
+  </script>
+</head>
+<body>
+<header>
+  <h1>Welcome to MBSTU FoodStuff</h1>
+  <div class="logout-button">
+    <button type="submit" name="logout1" onclick="clicked1()" style="background-color: black; color: white;">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+  <section class="token-purchase">
+
+    <h2 th:utext="'Hi! ' + ${msg} + '. Get Your Meal Tokens'"></h2>
+
+    <p>Buy tokens to enjoy meals at our Hall. Each token costs 30 Taka.</p>
+    <div th:if="${msg2}" class="alert alert-danger">
+      <p style="color: red" th:text="${msg2}"></p>
+    </div>
+
+    <form th:action="@{/purchase}" method="post">
+      <label for="hall-name">Hall Name:</label>
+      <select id="hall-name" name="hallName">
+        <option value="Bangabandhu Sheikh Mujibur Rahman Hall">Bangabandhu Sheikh Mujibur Rahman Hall</option>
+        <option value="Jananeta Abdul Mannan Hall">Jananeta Abdul Mannan Hall </option>
+        <option value="Sheikh Rasel Hall">Sheikh Rasel Hall</option>
+        <option value="Shahid Ziaur Rahman Hall">Shahid Ziaur Rahman Hall</option>
+        <option value="Alema Khatun Bhashani Hall">Alema Khatun Bhashani Hall</option>
+        <option value="Shaheed Janani Jahanara Imam Hall">Shaheed Janani Jahanara Imam Hall</option>
+        <option value="Bangamata Sheikh Fazilatunnesa Mujib Hall">Bangamata Sheikh Fazilatunnesa Mujib Hall</option>
+
+      </select>
+      <p></p>
+      <label for="lunch-quantity">Token for Lunch:</label>
+      <input type="number" id="lunch-quantity" name="lunch" min="0" max="20" value="0">
+
+      <label for="dinner-quantity">Token for Dinner:</label>
+      <input type="number" id="dinner-quantity" name="dinner" min="0" max="20" value="0">
+
+
+      <button type="submit">Purchase</button>
+    </form>
+  </section>
+
+  <section class="about-us">
+    <h2>About Us</h2>
+    <p>Learn more about FoodStuff and our delicious meals.</p>
+    <a th:href="@{/about}">Read More</a>
+  </section>
+</div>
+
+<footer>
+  <p>&copy; 2023 FoodStuff</p>
+</footer>
+</body>
+</html>

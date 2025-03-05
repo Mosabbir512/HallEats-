@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About HallEats</title>
+    <link rel="stylesheet" href="your-css-file.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add your existing styles here... */
+
+        footer {
+            max-height: 30px;
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>About FoodStaff</h1>
+</header>
+
+<div class="container">
+    <section class="about-section">
+        <p>
+            Welcome to the FoodStuff project. FoodStuff is a revolutionary solution designed to make the process of collecting hall tokens faster and more efficient.
+            <br><br>
+            Our project aims to streamline the token collection process for students residing in the university's halls as well as those living off-campus. With FoodStuff, students can quickly and conveniently collect their hall tokens, saving them precious time.
+            <br><br>
+            FoodStuff was developed by a dedicated team of students from Information and Communication Technology Department of Mawlana Bhashani Science and Technology University. Below, you can meet the key members of our team:
+        </p>
+
+<!--        <img th:src="@{/images/us.png}" alt="Student Developer" width="200" height="250">-->
+        <p>
+            <strong>Mst. Nargis Akter</strong><br>
+            <em>Supervisor</em><br>
+            <label>Associate Professor</label><br>
+            <label>Information and Communication Technology Department,
+            MBSTU</label><br><br>
+
+            Mst. Nargis Akter has been instrumental in guiding our project and providing valuable insights throughout its development.I would like to extend my heartfelt gratitude to Ms. Nargis Akter for her outstanding mentorship and guidance
+        </p>
+
+<!--        <img src="student-developer-photo.jpg" alt="Student Developer" width="200" height="250">-->
+        <p>
+            <strong>Mosabbir,Touhid,Treesha,Abdullah</strong><br>
+            <em>Student Developer</em><br><br>
+            "Touhid and Abdullah took charge of the backend server-related tasks, while Mosabbir and Treesha led the frontend development. Together, they poured their talent and hard work into bringing FoodStuff to life
+        </p>
+
+        <a  href="javascript:history.back();" class="goback-button">Go Back</a>
+    </section>
+</div>
+
+
+<footer>
+    <p>&copy; 2023 FoodStuff</p>
+</footer>
+
+</body>
+</html>

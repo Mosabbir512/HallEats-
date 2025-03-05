@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+        .welcome-message {
+            font-size: 14px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+
+        }
+
+        .registration-message {
+            font-size: 12px;
+            font-weight: lighter;
+            color: #007BFF;
+            margin-bottom: 20px;
+            animation: jump 0.5s ease-in-out;
+        }
+
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .wrong-input
+        {
+            font-size: 13px;
+
+            color: red;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .create-account-message {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .register-button {
+            font-size: 16px;
+            color: #007BFF;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .thelogo {
+            background-color: #4CAF50; /* Background color */
+            color: white; /* Text color */
+            padding: 10px; /* Padding around the logo */
+            border-radius: 5px; /* Rounded corners */
+            display: inline-block; /* Make it an inline block element */
+            font-size: 10px; /* Font size */
+            font-weight: bold; /* Font weight */
+            text-transform: uppercase; /* Uppercase text */
+            letter-spacing: 2px; /* Letter spacing */
+            text-align: center; /* Center text horizontally */
+        }
+
+        .thelogo h1 {
+            margin: 0; /* Remove default margin */
+        }
+
+    </style>
+</head>
+<body>
+<div class="thelogo">
+    <h1>FoodStuff</h1>
+</div>
+<div class="container">
+    <div class="welcome-message">
+        Quickly grab hall tokens, save precious time
+    </div>
+    <div th:if="${pc}" class="alert alert-danger">
+        <p style="..." th:text="${pc}"></p>
+    </div>
+    <div th:if="${obj}" class="registration-message">
+        <p th:text="${obj}"></p>
+    </div>
+    <div th:if="${objfail}" class="wrong-input">
+        <p th:text="${objfail}"></p>
+    </div>
+    <form th:action="@{/checklogin}" method="post">
+        <input type="text" placeholder="Phone/Email" name="identity" required><br>
+        <input type="password" placeholder="Password" name="pass" required><br>
+        <button type="submit">Login</button>
+    </form>
+    <div class="create-account-message">
+        Don't have an account? <a class="register-button" href="/register">Register</a>
+    </div>
+</div>
+</body>
+</html>

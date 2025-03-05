@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Authority Home</title>
+    <style>
+        /* Styling for the authority home page */
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 200px;
+            text-align: center;
+        }
+
+        h1 {
+            padding-top: 20px;
+            padding-left: 505px;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        .search-form {
+            padding-top: 100px;
+            background-color: black;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            padding-right: 400px;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            max-width: 350px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: black;
+            color: white;
+        }
+
+        .search-button {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Authority Home</h1>
+<div class="container">
+    <div th:if="${msg}" class="alert alert-danger">
+        <p style="color: red" th:text="${msg}"></p>
+    </div>
+    <div class="search-form">
+        <form action="Searchstudent" >
+            <label for="identity">Enter Student Identity:</label>
+            <input type="text" id="identity" name="identity" placeholder="Enter a Student's Identity" required>
+
+            <button type="submit" class="search-button">Search Token Information</button>
+        </form>
+    </div>
+    <p></p>  <a class="go-back-button" href="logout2">Logout</a>
+</div>
+</body>
+</html>

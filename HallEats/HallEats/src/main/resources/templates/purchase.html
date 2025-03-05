@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HallEats - Payment</title>
+    <link rel="stylesheet" href="your-css-file.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .payment-info {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            max-width: 756px;
+            /* Make the button full width */
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        footer {
+            max-height: 30px; /* Reduce by half */
+            text-align: center;
+            padding: 10px; /* Adjust padding as needed */
+            background-color: #4CAF50;
+            color: white;
+            display: flex;
+            justify-content: center; /* Center align text horizontally */
+            align-items: center; /* Center align text vertically */
+        }
+
+        /* Style for Payment Method Radio Buttons */
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        .payment-method label {
+            margin-left: 5px;
+        }
+        .abdullah
+        {
+            padding-right: 8px;
+            font-weight: bold;
+            max-width: 150px;
+        }
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+        }
+
+    </style>
+    <script>
+        function clicked1(){
+            window.location.href="http://localhost:8080/logout"
+
+        }
+
+
+    </script>
+</head>
+<body>
+<header>
+    <h1>FoodStuff: Delicious, Quick & Convenient</h1>
+    <div  class="logout-button">
+        <button type="submit" name="logout1" onclick="clicked1()" style="background-color: black; color: white;">Logout</button>
+    </div>
+</header>
+
+<div class="container">
+    <section class="payment-info">
+<!--        <h2>Payment Information</h2>-->
+        <p style="color: green;font-weight: bold">User Information:</p>
+<!--        <label>Consumer:</label>-->
+        <p th:text="'Consumer: '+${token.getName()}"></p>
+<!--        <label>Identity:</label>-->
+        <p th:text="'Identity: '+${token.getIid()}"></p>
+
+        <p style="color: green; font-weight: bold;">Token Information:</p>
+         <p th:text="'HallName :'+${token.getHallName()}"></p>
+        <!--        <label>Lunch Tokens:</label>-->
+        <p th:text="'Lunch Tokens: '+${token.getLunch()}"></p>
+<!--        <label>Dinner Tokens:</label>-->
+        <p th:text="'Dinner Tokens: '+${token.getDinner()}"></p>
+<!--        <label>Total Cost:</label>-->
+        <p th:text="'Total Cost:'+${totalcost}"></p>
+<!--        <label>Date:</label>-->
+        <p th:text="'Date: '+${token.getDate()}"></p>
+        <h3>Select Payment Method:</h3>
+        <div class="payment-methods">
+            <form action="pay">
+                <div class="payment-method">
+                    <input type="radio" id="bkash" name="paymentMethod" value="bkash" checked>
+                    <label style="padding-top: 10px;color:red"  for="bkash">Bkash</label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="dbbl" name="paymentMethod" value="dbbl">
+                    <label style="padding-top: 10px;color:red" for="dbbl">Dutch Bangla</label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="debit-card" name="paymentMethod" value="debit-card">
+                    <label style="padding-top: 10px;color:red" for="debit-card">Debit Card</label>
+                </div>
+                <div class="payment-method">
+                    <input type="radio" id="Nagad" name="paymentMethod" value="atm-card">
+                    <label style="padding-top: 10px;color:red" for="Nagad">Nagad</label>
+                </div>
+                <button type="submit">Make Payment</button>
+            </form>
+        </div>
+
+
+
+    </section>
+    <div class="abdullah">
+        <a  href="javascript:history.back();" class="goback-button">Go Back</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2023 FoodStuff</p>
+</footer>
+</body>
+</html>

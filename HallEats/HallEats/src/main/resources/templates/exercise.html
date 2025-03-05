@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HallEats - Payment</title>
+  <link rel="stylesheet" href="your-css-file.css">
+  <style>
+    /* Your CSS styles here */
+    /* Add colorful styles as per your design preferences */
+    body {
+      background-color: #f4f4f4;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 756px;
+      /* Make the button full width */
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative; /* Add this line */
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .payment-info {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #4CAF50;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      max-width: 756px;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .confirm-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 756px;
+    }
+
+    .confirm-button:hover {
+      background-color: #45a049;
+    }
+    .logout-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+    }
+
+    /* Style for the Home button */
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px; /* Adjust the left position to move it to the top-left corner */
+      background: black;
+    }
+  </style>
+  <script>
+    function clicked1(){
+      window.location.href="http://localhost:8080/logout"
+    }
+
+    // Function for the Home button
+    function home() {
+      window.location.href = "/";
+    }
+  </script>
+</head>
+<body>
+<header>
+  <h1>HallEats: Delicious, Quick & Convenient</h1>
+
+  <!-- Home button -->
+  <div class="home-button">
+    <button type="button" name="home" onclick="home()" style="background-color: #4CAF50; color: white;">Home</button>
+  </div>
+
+  <div class="logout-button">
+    <button type="submit" name="logout1" onclick="clicked1()" style="background-color: black; color: white;">Logout</button>
+  </div>
+</header>
+
+
+<div class="container">
+  <section class="payment-info">
+    <h2>Payment Information</h2>
+    <p style="color: blue;font-weight: bold"> <span th:text="${paymentmethod}+' Payment'"></span></p>
+    <p>Total Amount: <span th:text="${cost}"></span> BDT</p>
+
+    <form action="confirmpayment" >
+      <label for="phone-number">Account Number:</label>
+      <input type="text" id="phone-number" name="accountNumber"  th:placeholder="${paymentmethod}+' Number'" required>
+
+      <label for="pin">PIN:</label>
+      <input type="password" id="pin" name="pin" placeholder="Enter your PIN" required>
+
+      <button type="submit" class="confirm-button">Confirm</button>
+    </form>
+  </section>
+</div>
+
+<footer style="text-align: center;padding-top:20px;">
+  <p>&copy; 2023 HallEats</p>
+</footer>
+</body>
+</html>
